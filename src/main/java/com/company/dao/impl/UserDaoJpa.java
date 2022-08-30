@@ -2,14 +2,13 @@ package com.company.dao.impl;
 
 import com.company.dao.UserDao;
 import com.company.model.User;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
 import java.util.List;
 
-@Component
+@Repository
 public class UserDaoJpa implements UserDao {
 
     @PersistenceContext
@@ -28,10 +27,7 @@ public class UserDaoJpa implements UserDao {
 
     @Override
     public User getById(int id) {
-        TypedQuery<User> query = entityManager.createQuery(
-                "select u from User u where u.id =:id", User.class);
-        query.setParameter("id", id);
-        return query.getResultList().stream().findAny().orElse(null);
+        return entityManager.find(User.class, id);
     }
 
     @Override
@@ -41,8 +37,6 @@ public class UserDaoJpa implements UserDao {
 
     @Override
     public void delete(int id) {
-        entityManager.createQuery("delete from User u where u.id=:id")
-                .setParameter("id", id)
-                .executeUpdate();
+        entityManager.remove(getById(id));
     }
 }

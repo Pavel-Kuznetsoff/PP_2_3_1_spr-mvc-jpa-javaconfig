@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.example</groupId>
-    <artifactId>PP_2_3_1_crud-spr-mvc-hiber-javaconfig</artifactId>
+    <artifactId>PP_2_3_1_spr-mvc-jpa-javaconfig</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
@@ -58,7 +58,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>PP_2_3_1_crud-spr-mvc-hiber-javaconfig</finalName>
+        <finalName>PP_2_3_1_spr-mvc-jpa-javaconfig</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
